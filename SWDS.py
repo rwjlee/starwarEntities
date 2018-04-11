@@ -6,7 +6,7 @@ from base import DbManager
 
 class SWDS:
     def __init__(self):
-        self.DbManager = DbManager()
+        self.db_Manager = DbManager()
 
     def get_json(url):
         resp = requests.get(url)
@@ -20,7 +20,7 @@ class SWDS:
         entity = obj()
         entity.parse_json(json_data)
 
-        self.DbManager.save(entity)
+        self.db_Manager.save(entity)
 
     def populate(obj, next_url):
         while next_url:
@@ -29,7 +29,7 @@ class SWDS:
 
             for row in results:
                 url = row['url']
-                results = self.DbManager.query(obj).filter(obj.url == url).all()
+                results = self.db_Manager.query(obj).filter(obj.url == url).all()
 
                 if len(results)==0:
                     save_entity(url, obj)
