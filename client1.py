@@ -38,12 +38,3 @@ def populate(obj, next_url):
         next_url=group_data['next']
         # next_url = None
 
-entity_tuple = [(Person, "https://swapi.co/api/people/?page=1"), 
-    (Species, "https://swapi.co/api/species/?page=1"),
-    (Starship, "https://swapi.co/api/starships/?page=1"),
-    (Vehicle, "https://swapi.co/api/vehicles/?page=1"),
-    (Planet, "https://swapi.co/api/planets/?page=1")]
-
-for value in entity_tuple:
-    obj, next_url = value
-    populate(obj, next_url)
