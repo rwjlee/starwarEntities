@@ -37,6 +37,7 @@ class DbManager:
             self.session.commit()
         except:
             self.session.rollback()
+            raise
         finally:
             self.close()
         
